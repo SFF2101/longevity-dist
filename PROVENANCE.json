@@ -1,6 +1,7 @@
 {
   "files": {
-    ".github/workflows/validate.yml": "50a23ad97166047a0c660a7dd3de1434a49e0e8414133d053a88b729eef90287",
+    ".github/workflows/validate.yml": "c4dd59013bae7d06e5d0147ddeecc0f0bf50ab87977e2af51392ea2483a03e7d",
+    ".gitignore": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
     "README.md": "e7e71b518c1313a9168239ce380346eb51bbae46a7951a1496da2de8f39a6de7",
     "SECURITY.md": "be9a3a2efd7671a90363e14dafa0d33991d74d0540b75539c4d789d8eaff32d0",
     "docs/WEIGHT_RULE.md": "82d603f529707901343ac99869052673d84d460c6f9927e617376109672f07c9",
@@ -25,5 +26,5 @@
   },
   "schema": "longevity.dist.provenance.v1",
   "source": "private source repository",
-  "source_commit": "fbfc4aee55dc82dcd4c9ac6b9295ad70f722dfbb"
+  "source_commit": "323f09012a0a27438b76f3cc8622695057762cc2"
 }

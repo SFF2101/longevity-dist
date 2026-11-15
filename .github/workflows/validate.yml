@@ -12,8 +12,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Syntax check
-        run: python -m compileall -q longevity_health_collector longevity_drive_bridge tests
+      - name: Provenance matches tree
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib, subprocess
+          p = json.loads(pathlib.Path('PROVENANCE.json').read_text())
+          for f, h in p['files'].items():
+              assert hashlib.sha256(pathlib.Path(f).read_bytes()).hexdigest() == h, f
+          tracked = set(subprocess.check_output(['git', 'ls-files'], text=True).split()) - {'PROVENANCE.json'}
+          assert tracked == set(p['files']), tracked ^ set(p['files'])
+          print('provenance ok', len(tracked), 'files from', p['source_commit'])
+          PY
       - name: Credential and personal-data scan
         run: |
           set -eu
@@ -21,21 +30,12 @@ jobs:
           if grep -rInE 'AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{30,}|ya29\.[A-Za-z0-9_-]{20,}' --exclude-dir=.git .; then echo "possible token"; exit 1; fi
           if grep -rInE '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}' --exclude-dir=.git .; then echo "e-mail address"; exit 1; fi
           if grep -rInE '\b[0-9a-f]{64}\b' --exclude-dir=.git --exclude=PROVENANCE.json .; then echo "literal hash outside provenance"; exit 1; fi
-          if find . -path ./.git -prune -o -type f \( -name '*.json' ! -name PROVENANCE.json -o -name '*.zip' -o -name '*.csv' -o -name 'token*' \) -print | grep .; then echo "data file"; exit 1; fi
+          if git ls-files | grep -E '\.(zip|csv|pyc)$|(^|/)token|\.json$' | grep -v '^PROVENANCE.json$'; then echo "data or compiled file"; exit 1; fi
           echo "scan clean"
+      - name: Syntax check
+        run: python -m compileall -q longevity_health_collector longevity_drive_bridge tests
       - name: Synthetic tests
         run: python -m unittest discover -s tests -v
-      - name: Provenance matches tree
-        run: |
-          python - <<'PY'
-          import hashlib, json, pathlib
-          p = json.loads(pathlib.Path('PROVENANCE.json').read_text())
-          for f, h in p['files'].items():
-              assert hashlib.sha256(pathlib.Path(f).read_bytes()).hexdigest() == h, f
-          tracked = {x.as_posix() for x in pathlib.Path('.').rglob('*') if x.is_file() and '.git' not in x.parts} - {'PROVENANCE.json'}
-          assert tracked == set(p['files']), tracked ^ set(p['files'])
-          print('provenance ok', len(tracked), 'files from', p['source_commit'])
-          PY
       - name: Version consistency
         run: |
           for a in longevity_health_collector longevity_drive_bridge; do
