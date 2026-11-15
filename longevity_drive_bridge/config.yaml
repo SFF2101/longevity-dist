@@ -1,0 +1,35 @@
+name: "Longevity Drive Bridge"
+version: "0.4.0"
+slug: longevity_drive_bridge
+description: "Independent, non-destructive Longevity Google Drive copy-and-verify service"
+arch:
+  - aarch64
+startup: application
+boot: manual
+init: false
+map:
+  - type: share
+    read_only: false
+  - type: app_config
+    read_only: true
+options:
+  dry_run: true
+  test_only: true
+  production_approved: false
+  run_once: true
+  interval_hours: 24
+  root_folder_id: ""
+  mode: archive
+  restore_approved: false
+  pinned_hashes: []
+schema:
+  dry_run: bool
+  test_only: bool
+  production_approved: bool
+  run_once: bool
+  interval_hours: "int(1,168)"
+  root_folder_id: str
+  mode: "list(archive|restore)"
+  restore_approved: bool
+  pinned_hashes:
+    - str

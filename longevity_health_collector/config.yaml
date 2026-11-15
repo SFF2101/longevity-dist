@@ -1,0 +1,38 @@
+name: "Longevity Health Collector"
+version: "0.3.0"
+slug: longevity_health_collector
+description: "Read-only Home Assistant health metrics, daily minimum weight selection and derived weight analytics"
+arch:
+  - aarch64
+startup: application
+boot: manual
+init: false
+homeassistant_api: true
+map:
+  - type: share
+    read_only: false
+options:
+  dry_run: true
+  collection_approved: false
+  run_once: true
+  collect_hour: 23
+  collect_minute: 45
+  timezone: "UTC"
+  weight_entity: ""
+  metrics: []
+  publish_entities: false
+  heartbeat_minutes: 15
+  bridge_interval_hours: 24
+schema:
+  dry_run: bool
+  collection_approved: bool
+  run_once: bool
+  collect_hour: "int(0,23)"
+  collect_minute: "int(0,59)"
+  timezone: str
+  weight_entity: str
+  metrics:
+    - str
+  publish_entities: bool
+  heartbeat_minutes: "int(5,60)"
+  bridge_interval_hours: "int(1,168)"

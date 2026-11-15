@@ -1,0 +1,29 @@
+{
+  "files": {
+    ".github/workflows/validate.yml": "50a23ad97166047a0c660a7dd3de1434a49e0e8414133d053a88b729eef90287",
+    "README.md": "e7e71b518c1313a9168239ce380346eb51bbae46a7951a1496da2de8f39a6de7",
+    "SECURITY.md": "be9a3a2efd7671a90363e14dafa0d33991d74d0540b75539c4d789d8eaff32d0",
+    "docs/WEIGHT_RULE.md": "82d603f529707901343ac99869052673d84d460c6f9927e617376109672f07c9",
+    "longevity_drive_bridge/Dockerfile": "8c5c142f2965e0735dca5156af1d98003a82b94a6098998d414af1c2a9725653",
+    "longevity_drive_bridge/config.yaml": "fa3afee69548120e624acdbf9a1b97f652bd04df834dd5e05749958bc5123fa6",
+    "longevity_drive_bridge/mount_guard.py": "a7e8c4e7e5afe4041bcbee1dfb5381c09ffb3213aab9a4f00baf36801a3220f1",
+    "longevity_drive_bridge/replicate.py": "fb6778a0b0b1cf73e7935837566b26609cca0b677b102a1530b13130ac2192fe",
+    "longevity_drive_bridge/run.sh": "7cb9fde2a629e56c4ef0a2e25e4cd75b39700c1a3e8e9157f392a069390016c6",
+    "longevity_health_collector/Dockerfile": "9080c4655376c6b4213a8b5e6951141553bbda70783a9a7f803c5caf45992c50",
+    "longevity_health_collector/collect.py": "1c48bf174bff6f2eebe794428adb41d363cf783cbd0326683ed0419bb465e744",
+    "longevity_health_collector/config.yaml": "74a8a7a95d0c503d83d497a571cb38b4881169115e6e0daea7692dab5d1680cf",
+    "longevity_health_collector/mount_guard.py": "a7e8c4e7e5afe4041bcbee1dfb5381c09ffb3213aab9a4f00baf36801a3220f1",
+    "longevity_health_collector/run.sh": "99a72579f14c01cf06883c13e1dbdf47d79d98fb361f0f41f2d377bfc9cae26b",
+    "longevity_health_collector/summary.py": "7d24b50f7312ffc9f1803bc88544434a4e0702f72230bb28134e30aa562c6ba2",
+    "longevity_health_collector/weight_min.py": "448ecb9b35ede2bb3ed7c5fa6e8e24ba37392d9894c9a80782159be5aa52b9c6",
+    "repository.yaml": "48b060f28d3a72cf3ee3d53501fa4483d09dedebf9cf6c0fa1b666dbb94b6bae",
+    "tests/test_bridge_restore.py": "0b943d9de42a6ca5a38814bd99a7e575fc5e0b7207c5902c4ca38dc303907258",
+    "tests/test_collector_guard.py": "bef30147ec6a19bc4bf8048fc5724734f6476af2d0c686e421a3fc5c63692573",
+    "tests/test_derived_and_health.py": "12fa9adabb660267b02b147d1e594b6a33c9037ee1b31721d6875da1f3ea64e0",
+    "tests/test_mount_guard.py": "318fc8ed5a859bf1841cbd42b0599e2a78409f2f069e6642d3cfcee2ad9568e4",
+    "tests/test_weight_min.py": "9e1191ba5548c06b2792def33a35969c5683d07769bd28ff300f3271b49e9d33"
+  },
+  "schema": "longevity.dist.provenance.v1",
+  "source": "private source repository",
+  "source_commit": "fbfc4aee55dc82dcd4c9ac6b9295ad70f722dfbb"
+}
