@@ -1,5 +1,5 @@
 name: "Longevity Drive Bridge"
-version: "0.4.0"
+version: "0.4.1"
 slug: longevity_drive_bridge
 description: "Independent, non-destructive Longevity Google Drive copy-and-verify service"
 arch:
