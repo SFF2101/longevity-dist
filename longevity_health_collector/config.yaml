@@ -1,5 +1,5 @@
 name: "Longevity Health Collector"
-version: "0.3.0"
+version: "0.3.1"
 slug: longevity_health_collector
 description: "Read-only Home Assistant health metrics, daily minimum weight selection and derived weight analytics"
 arch:

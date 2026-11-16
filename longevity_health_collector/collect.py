@@ -2,9 +2,9 @@
 """Longevity Health Collector: read-only HA metrics snapshot, daily minimum weight selection, derived weight
 analytics and health heartbeat.
 Reads HA via GET /core/api/states and /core/api/history (never changes source entities).
-Writes ONLY: /share/Longevity/03_Current_Data/{snapshot_,daily_weight_min_}YYYY-MM-DD.json, the app-private
+Writes ONLY: /share/HomeData/Longevity/03_Current_Data/{snapshot_,daily_weight_min_}YYYY-MM-DD.json, the app-private
 /data/collector_state.json and, when publish_entities is enabled, the four sensor.longevity_* states via
-POST /core/api/states. Reads the Drive Bridge status file /share/Longevity/.runtime/bridge_status.json.
+POST /core/api/states. Reads the Drive Bridge status file /share/HomeData/Longevity/.runtime/bridge_status.json.
 All account-specific entity mappings come from the app options (private runtime configuration).
 """
 import datetime as dt
@@ -25,7 +25,7 @@ import mount_guard
 import summary
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
-VERSION = '0.3.0'
+VERSION = '0.3.1'
 ROOT = mount_guard.ROOT
 DEST = ROOT / '03_Current_Data'
 RUNTIME = ROOT / '.runtime'
