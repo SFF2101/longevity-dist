@@ -7,7 +7,7 @@ existing directories; never modifies Drive; never overwrites or replaces an exis
 """
 import hashlib, json, os, pathlib, re, sys, tempfile, time, urllib.error, urllib.parse, urllib.request
 import mount_guard
-VERSION = '0.4.0'
+VERSION = '0.4.1'
 
 SOURCE = mount_guard.ROOT
 DATA = pathlib.Path('/data')

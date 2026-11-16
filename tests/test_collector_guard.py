@@ -23,12 +23,12 @@ class CollectorGuard(unittest.TestCase):
     def test_version_identifiers_consistent(self):
         app = pathlib.Path(collect.__file__).parent
         cfg = (app / "config.yaml").read_text(); dock = (app / "Dockerfile").read_text()
-        self.assertIn('version: "0.3.0"', cfg); self.assertIn('io.hass.version="0.3.0"', dock)
-        self.assertIn("VERSION = '0.3.0'", (app / "collect.py").read_text())
+        self.assertIn('version: "0.3.1"', cfg); self.assertIn('io.hass.version="0.3.1"', dock)
+        self.assertIn("VERSION = '0.3.1'", (app / "collect.py").read_text())
         b = app.parent / "longevity_drive_bridge"
-        self.assertIn('version: "0.4.0"', (b / "config.yaml").read_text())
-        self.assertIn('io.hass.version="0.4.0"', (b / "Dockerfile").read_text())
-        self.assertIn("VERSION = '0.4.0'", (b / "replicate.py").read_text())
+        self.assertIn('version: "0.4.1"', (b / "config.yaml").read_text())
+        self.assertIn('io.hass.version="0.4.1"', (b / "Dockerfile").read_text())
+        self.assertIn("VERSION = '0.4.1'", (b / "replicate.py").read_text())
 
 
 if __name__ == "__main__": unittest.main()
